@@ -1,25 +1,19 @@
-import React from 'react'
-import useGlobalState from '../GlobalState/useGlobalState'
-import AccessGlobalState from './AccessGlobalState'
+import React from 'react';
+import { useGlobalState } from '../context/context';
 
 const GlobalStateTest = () => {
-    const [value, setValue] = useGlobalState()
-    const [tab, setTab] = React.useState(true);
-    
-    const handleChange = (e) => {
-        setValue(e.target.value)
-    }
- 
-    return (
-    <div>
-      <h3>GlobalStateTest</h3>
-      {tab ? <input type="text" value={value} onChange={handleChange} /> : <AccessGlobalState />}
-      <br />
-      <br />
-      <button onClick={() => setTab(!tab)}>Toggle</button>
-      {/* <AccessGlobalState /> */}
-    </div>
-  )
-}
+  const { globalValue, setGlobalValue } = useGlobalState();
 
-export default GlobalStateTest
+  return (
+    <div>
+      <h2>Component A</h2>
+      <input
+        type="text"
+        value={globalValue}
+        onChange={(e) => setGlobalValue(e.target.value)}
+      />
+    </div>
+  );
+};
+
+export default GlobalStateTest;

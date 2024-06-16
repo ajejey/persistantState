@@ -24,8 +24,39 @@ const FormWithKeyRemove = () => {
 
   return (
     <div>
-      <input type="text" value={myValue} onChange={(e) => setMyValue(e.target.value)} />
-      <button onClick={handleFormSubmit}>Submit</button>
+      {/* Add modern css styling to the form */}
+      <style>
+        {`
+          form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 300px;
+          }
+          input {
+            margin-bottom: 10px;
+          }
+          button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+          button:hover {
+            background-color: #45a049;
+          }
+        `}
+      </style>
+
+      <form>
+        <input type="text" value={myValue} onChange={(e) => setMyValue(e.target.value)} />
+        <button style={{ marginLeft: '10px' }} onClick={handleFormSubmit}>Submit</button>
+        <button style={{ marginLeft: '10px' }} onClick={() => removeMyKey('myValue')}>Remove key</button>
+      </form>
     </div>
   );
 };

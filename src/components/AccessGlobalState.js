@@ -1,11 +1,15 @@
-import React from 'react'
-import useGlobalState from '../GlobalState/useGlobalState'
+import React from 'react';
+import { useGlobalState } from '../context/context';
 
 const AccessGlobalState = () => {
-    const [value] = useGlobalState()
-  return (
-    <div>Global state: {value}</div>
-  )
-}
+  const { globalValue } = useGlobalState();
 
-export default AccessGlobalState
+  return (
+    <div>
+      <h2>Component B</h2>
+      <p>Global Value: {globalValue}</p>
+    </div>
+  );
+};
+
+export default AccessGlobalState;

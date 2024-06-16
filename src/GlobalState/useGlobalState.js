@@ -1,9 +1,7 @@
-import React from 'react'
-import usePersistentState from '../usePersistentState'
+// globalState.js
 
-const useGlobalState = () => {
-    const [value, setValue] = usePersistentState('value', '', 'globalDb', 'globalStore');
-  return [value, setValue]
-}
+import createPersistentState from "../createPersistantState";
 
-export default useGlobalState
+const useGlobalState = createPersistentState('globalDb', 'globalStore');
+
+export default useGlobalState;
