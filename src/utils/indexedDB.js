@@ -1,4 +1,3 @@
-// src/utils/indexedDB.js
 export const getDbInstance = (dbName, storeName) => {
   return new Promise((resolve, reject) => {
     const request = indexedDB.open(dbName, 1);
@@ -19,6 +18,7 @@ export const getDbInstance = (dbName, storeName) => {
     };
   });
 };
+
 
 
 // // src/utils/indexedDb.js
